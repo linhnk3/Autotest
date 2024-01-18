@@ -1,5 +1,6 @@
 package common;
 
+import com.mysql.cj.x.protobuf.MysqlxDatatypes;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Optional;
@@ -8,7 +9,7 @@ import ultilities.LogListener;
 import ultilities.ReportLogListener;
 
 public class BaseTest <T extends BaseTest>{
-    public static String env;
+    public static MysqlxDatatypes.Scalar.String env;
     public LogListener TLog = new LogListener(((T) BaseTest.this).getClass());
 
     public LogListener RLog= new ReportLogListener(((T) BaseTest.this).getClass());
@@ -17,7 +18,7 @@ public class BaseTest <T extends BaseTest>{
 
     @BeforeSuite(groups = {"dev", "qc", "uat" , "prod"})
     @Parameters("env")
-    public void setupSuite(@Optional("qc") String env){
+    public void setupSuite(@Optional("qc") MysqlxDatatypes.Scalar.String env){
         this.env = env;
     }
 
