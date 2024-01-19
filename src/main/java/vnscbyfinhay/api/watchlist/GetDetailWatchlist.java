@@ -1,9 +1,7 @@
 package vnscbyfinhay.api.watchlist;
 
 import Connection.MySQL;
-import com.mashape.unirest.http.exceptions.UnirestException;
-import constants.BodyApi;
-import constants.configPath;
+import constants.ConfigPath;
 import io.restassured.path.json.JsonPath;
 import vnscbyfinhay.api.login.GetToken;
 
@@ -25,7 +23,7 @@ public class GetDetailWatchlist {
     public JsonPath getAPIDetailWatchlist(Integer id) throws Exception {
         return given().header( "Authorization","Bearer "+ GetToken.getAPIToken2())
                 .when()
-                .get(configPath.GET_DETAIL_WATCHLIST + id)
+                .get(ConfigPath.GET_DETAIL_WATCHLIST + id)
                 .then()
                 .statusCode(200)
                 .assertThat().extract().response().getBody().jsonPath();
@@ -34,7 +32,7 @@ public class GetDetailWatchlist {
     public JsonPath getAPIDetailWatchlistWithIDNull(Integer id) throws Exception {
         return given().header( "Authorization","Bearer "+ GetToken.getAPIToken2())
                 .when()
-                .get(configPath.GET_DETAIL_WATCHLIST + id)
+                .get(ConfigPath.GET_DETAIL_WATCHLIST + id)
                 .then()
                 .statusCode(500)
                 .assertThat().extract().response().getBody().jsonPath();

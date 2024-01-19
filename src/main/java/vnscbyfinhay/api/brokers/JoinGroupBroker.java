@@ -1,7 +1,7 @@
 package vnscbyfinhay.api.brokers;
 
 import Connection.MySQL;
-import constants.configPath;
+import constants.ConfigPath;
 import io.restassured.path.json.JsonPath;
 import vnscbyfinhay.api.login.GetToken;
 
@@ -24,7 +24,7 @@ public class JoinGroupBroker {
                 .header("Content-Type", "application/json")
                 .body(String.format("{\n    \"favorite\": %s\n}", favorite))
                 .when()
-                .put(configPath.JOIN_GROUP_BROKER + id)
+                .put(ConfigPath.JOIN_GROUP_BROKER + id)
                 .then()
                 .statusCode(200)
                 .assertThat().extract().response().getBody().jsonPath();
@@ -35,7 +35,7 @@ public class JoinGroupBroker {
                 .header("Content-Type", "application/json")
                 .body(String.format("{\n    \"favorite\": %s\n}", favorite))
                 .when()
-                .put(configPath.JOIN_GROUP_BROKER + id)
+                .put(ConfigPath.JOIN_GROUP_BROKER + id)
                 .then()
                 .statusCode(400)
                 .assertThat().extract().response().getBody().jsonPath();
@@ -46,7 +46,7 @@ public class JoinGroupBroker {
                 .header("Content-Type", "application/json")
                 .body(String.format("{\n    \"favorite\": %s\n}", favorite))
                 .when()
-                .put(configPath.JOIN_GROUP_BROKER + id)
+                .put(ConfigPath.JOIN_GROUP_BROKER + id)
                 .then()
                 .statusCode(401)
                 .assertThat().extract().response().getBody().jsonPath();
@@ -57,7 +57,7 @@ public class JoinGroupBroker {
                 .header("Content-Type", "application/json")
                 .body(String.format("{\n    \"favorite\": %s\n}", favorite))
                 .when()
-                .put(configPath.JOIN_GROUP_BROKER + id)
+                .put(ConfigPath.JOIN_GROUP_BROKER + id)
                 .then()
                 .statusCode(401)
                 .assertThat().extract().response().getBody().jsonPath();

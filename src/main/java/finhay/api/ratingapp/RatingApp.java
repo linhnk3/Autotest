@@ -1,6 +1,6 @@
 package finhay.api.ratingapp;
 
-import constants.configPath;
+import constants.ConfigPath;
 import Connection.MySQL;
 import java.sql.*;
 import java.util.Map;
@@ -16,7 +16,7 @@ public class RatingApp {
     public String CallApiRatingApp(int user_id ){
     String result =  given().header("Content-Type", "application/json")
                     .when()
-                    .get(configPath.GET_RATING_APP+user_id+"/events/lastest_event")
+                    .get(ConfigPath.GET_RATING_APP+user_id+"/events/lastest_event")
                     .then()
                     .statusCode(200)
                     .assertThat().extract().response().getBody().jsonPath().getJsonObject("result");
@@ -26,7 +26,7 @@ public class RatingApp {
     public String CallApiRatingAppHaveResult(int user_id ) {
         String result = given().header("Content-Type", "application/json")
                 .when()
-                .get(configPath.GET_RATING_APP + user_id + "/events/lastest_event")
+                .get(ConfigPath.GET_RATING_APP + user_id + "/events/lastest_event")
                 .then()
                 .statusCode(200)
                 .assertThat().extract().response().getBody().jsonPath().getJsonObject("result.content");

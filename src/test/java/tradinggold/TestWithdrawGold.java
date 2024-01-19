@@ -1,7 +1,5 @@
 package tradinggold;
 
-import constants.BodyApi;
-import constants.configPath;
 import finhay.api.goldService.PostSellGold;
 import finhay.api.goldService.PostWithdrawGold;
 import org.apache.log4j.Logger;

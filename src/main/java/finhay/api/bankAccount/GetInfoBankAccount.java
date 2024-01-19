@@ -1,7 +1,7 @@
 package finhay.api.bankAccount;
 
 import constants.BodyApi;
-import constants.configPath;
+import constants.ConfigPath;
 
 import static io.restassured.RestAssured.given;
 
@@ -10,7 +10,7 @@ public class GetInfoBankAccount {
         String result =   given().header("Content-Type","application/json")
                 .body(BodyApi.Body_Login_1153)
                 .when()
-                .post(configPath.POST_LOGIN)
+                .post(ConfigPath.POST_LOGIN)
                 .then()
                 .statusCode(200)
                 .assertThat().extract().response().getBody().jsonPath().getJsonObject("result.access_token");
@@ -22,7 +22,7 @@ public class GetInfoBankAccount {
                 .header("Authorization","Bearer "+getTokenUser())
                 .body(BodyApi.Body_Login_1153)
                 .when()
-                .get(configPath.GET_INFO_BANK_ACCOUNT_CORRECT)
+                .get(ConfigPath.GET_INFO_BANK_ACCOUNT_CORRECT)
                 .then()
                 .statusCode(200)
                 .assertThat().extract().response().getBody().jsonPath().getJsonObject("result.is_valid");
@@ -36,7 +36,7 @@ public class GetInfoBankAccount {
                 .header("Authorization","Bearer "+getTokenUser())
                 .body(BodyApi.Body_Login_1153)
                 .when()
-                .get(configPath.GET_INFO_BANK_ACCOUNT_NOT_EXIST_IN_DB)
+                .get(ConfigPath.GET_INFO_BANK_ACCOUNT_NOT_EXIST_IN_DB)
                 .then()
                 .statusCode(200)
                 .assertThat().extract().response().getBody().jsonPath().getJsonObject("result.is_valid");
@@ -48,7 +48,7 @@ public class GetInfoBankAccount {
                 .header("Authorization","Bearer "+getTokenUser())
                 .body(BodyApi.Body_Login_1153)
                 .when()
-                .get(configPath.GET_INFO_BANK_ACCOUNT_WRONG_ACCOUNT_NUMBER)
+                .get(ConfigPath.GET_INFO_BANK_ACCOUNT_WRONG_ACCOUNT_NUMBER)
                 .then()
                 .statusCode(200)
                 .assertThat().extract().response().getBody().jsonPath().getJsonObject("message");

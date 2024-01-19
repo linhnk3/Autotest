@@ -1,6 +1,6 @@
 package constants;
 
-public class configPath {
+public class ConfigPath {
     // endPoint
     public static final String GET_PRICE_GOLD = "https://stg.finhay.app/gw/gold/v1/price/current";
     public static final String POST_BUY_SELL_GOLD = "https://stg.finhay.app/gw/gold/v1/users/";

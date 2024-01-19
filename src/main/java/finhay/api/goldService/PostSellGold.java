@@ -2,7 +2,7 @@ package finhay.api.goldService;
 
 import Connection.MySQL;
 import constants.BodyApi;
-import constants.configPath;
+import constants.ConfigPath;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -23,7 +23,7 @@ public class PostSellGold {
         String message = given().header("Content-Type", "application/json")
                 .body(BodyApi.body_gold_sell_success_gold_24K)
                 .when()
-                .post(configPath.POST_BUY_SELL_GOLD+user_id+"/requests")
+                .post(ConfigPath.POST_BUY_SELL_GOLD+user_id+"/requests")
                 .then()
                 .statusCode(200)
                 .assertThat().extract().response().getBody().jsonPath().getJsonObject("message");
@@ -35,7 +35,7 @@ public class PostSellGold {
         String message = given().header("Content-Type", "application/json")
                 .body(BodyApi.Body_Gold_Sell_Gold_24K_One_Mark_Success)
                 .when()
-                .post(configPath.POST_BUY_SELL_GOLD+user_id+"/requests")
+                .post(ConfigPath.POST_BUY_SELL_GOLD+user_id+"/requests")
                 .then()
                 .statusCode(200)
                 .assertThat().extract().response().getBody().jsonPath().getJsonObject("message");
@@ -46,7 +46,7 @@ public class PostSellGold {
         String message = given().header("Content-Type", "application/json")
                 .body(BodyApi.Body_Gold_Sell_Gold_All_Type_Success)
                 .when()
-                .post(configPath.POST_BUY_SELL_GOLD+user_id+"/requests")
+                .post(ConfigPath.POST_BUY_SELL_GOLD+user_id+"/requests")
                 .then()
                 .statusCode(200)
                 .assertThat().extract().response().getBody().jsonPath().getJsonObject("message");
@@ -57,7 +57,7 @@ public class PostSellGold {
         String message = given().header("Content-Type", "application/json")
                 .body(BodyApi.body_gold_sell_success_gold_24K)
                 .when()
-                .post(configPath.POST_BUY_SELL_GOLD+user_id+"/requests")
+                .post(ConfigPath.POST_BUY_SELL_GOLD+user_id+"/requests")
                 .then()
                 .statusCode(400)
                 .assertThat().extract().response().getBody().jsonPath().getJsonObject("message");
@@ -69,7 +69,7 @@ public class PostSellGold {
         String message = given().header("Content-Type", "application/json")
                 .body(BodyApi.body_gold_sell_over_gold_24K)
                 .when()
-                .post(configPath.POST_BUY_SELL_GOLD+user_id+"/requests")
+                .post(ConfigPath.POST_BUY_SELL_GOLD+user_id+"/requests")
                 .then()
                 .statusCode(400)
                 .assertThat().extract().response().getBody().jsonPath().getJsonObject("message");
@@ -81,7 +81,7 @@ public class PostSellGold {
         String message = given().header("Content-Type", "application/json")
                 .body(BodyApi.Body_Gold_Sell_Over_Limit_For_The_Day_Gold_Gold_24K)
                 .when()
-                .post(configPath.POST_BUY_SELL_GOLD+user_id+"/requests")
+                .post(ConfigPath.POST_BUY_SELL_GOLD+user_id+"/requests")
                 .then()
                 .statusCode(400)
                 .assertThat().extract().response().getBody().jsonPath().getJsonObject("message");
@@ -93,7 +93,7 @@ public class PostSellGold {
         String message = given().header("Content-Type", "application/json")
                 .body(BodyApi.Body_Gold_Sell_Less_Minimum_Gold_24K)
                 .when()
-                .post(configPath.POST_BUY_SELL_GOLD+user_id+"/requests")
+                .post(ConfigPath.POST_BUY_SELL_GOLD+user_id+"/requests")
                 .then()
                 .statusCode(400)
                 .assertThat().extract().response().getBody().jsonPath().getJsonObject("message");
@@ -106,7 +106,7 @@ public class PostSellGold {
         String message = given().header("Content-Type", "application/json")
                 .body(BodyApi.Body_Gold_Sell_No_Input_Amount)
                 .when()
-                .post(configPath.POST_BUY_SELL_GOLD+user_id+"/requests")
+                .post(ConfigPath.POST_BUY_SELL_GOLD+user_id+"/requests")
                 .then()
                 .statusCode(400)
                 .assertThat().extract().response().getBody().jsonPath().getJsonObject("message");

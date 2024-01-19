@@ -2,7 +2,7 @@ package finhay.api.bankAccount;
 
 import Connection.MySQL;
 import constants.BodyApi;
-import constants.configPath;
+import constants.ConfigPath;
 
 import java.sql.*;
 import java.util.Map;
@@ -19,7 +19,7 @@ public class PostAddBankAccount {
         String result =   given().header("Content-Type","application/json")
                 .body(BodyApi.Body_Login_38325)
                 .when()
-                .post(configPath.POST_LOGIN)
+                .post(ConfigPath.POST_LOGIN)
                 .then()
                 .statusCode(200)
                 .assertThat().extract().response().getBody().jsonPath().getJsonObject("result.access_token");
@@ -31,7 +31,7 @@ public class PostAddBankAccount {
                 .header("Authorization","Bearer "+getTokenUser())
                 .body(BodyApi.BODY_SAVE_BANK_ACCOUNT_SUCCESS)
                 .when()
-                .post(configPath.POST_SAVE_BANK_ACCOUNT)
+                .post(ConfigPath.POST_SAVE_BANK_ACCOUNT)
                 .then()
                 .statusCode(200)
                 .assertThat().extract().response().getBody().jsonPath().getJsonObject("message");

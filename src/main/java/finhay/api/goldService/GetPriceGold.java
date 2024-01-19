@@ -1,7 +1,7 @@
 package finhay.api.goldService;
 
 import Connection.MySQL;
-import constants.configPath;
+import constants.ConfigPath;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -87,7 +87,7 @@ public class GetPriceGold {
 
         Integer priceBidGold = given()
                 .when()
-                .get(configPath.GET_PRICE_GOLD)
+                .get(ConfigPath.GET_PRICE_GOLD)
                 .then()
                 .statusCode(200)
                 .assertThat().extract().response().getBody().jsonPath().getJsonObject("result.bid");
@@ -98,7 +98,7 @@ public class GetPriceGold {
 
         Integer priceAskGold = given()
                 .when()
-                .get(configPath.GET_PRICE_GOLD)
+                .get(ConfigPath.GET_PRICE_GOLD)
                 .then()
                 .statusCode(200)
                 .assertThat().extract().response().getBody().jsonPath().getJsonObject("result.ask");
