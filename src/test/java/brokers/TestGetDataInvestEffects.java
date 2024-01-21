@@ -10,8 +10,9 @@ import java.util.List;
 import java.util.Map;
 
 public class TestGetDataInvestEffects {
-    GetDataInvestEffects dataInvestEffects = new GetDataInvestEffects();
-    GetListBroker broker = new GetListBroker();
+    String env = System.getProperty("env");
+    GetDataInvestEffects dataInvestEffects = new GetDataInvestEffects(env);
+    GetListBroker broker = new GetListBroker(env);
 
     @Test
     public void TC_O1_Check_Correct_Data_Broker_With_ID_1() throws Exception {

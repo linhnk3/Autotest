@@ -1,6 +1,25 @@
 package constants;
 
 public class ConfigPath {
+    public static final String DEV_URL = "https://dev-api.vinasecurities.com";
+    public static final String PROD_URL = "https://api.vinasecurities.com";
+    public final String GET_INVEST_EFFECTS;
+    public final String GET_LIST_BROKER;
+
+    public ConfigPath(String env) {
+        System.out.println("[ConfigPath] Environment: " + env);
+        if ("dev".equals(env)) {
+            GET_INVEST_EFFECTS = DEV_URL + "/trade/brokers/";
+            GET_LIST_BROKER = DEV_URL + "/trade/brokers";
+        } else if ("prod".equals(env)) {
+            GET_INVEST_EFFECTS = PROD_URL + "/trade/brokers/";
+            GET_LIST_BROKER = PROD_URL + "/trade/brokers";
+        } else {
+            GET_INVEST_EFFECTS = "https://dev-api.vinasecurities.com/trade/brokers/";
+            GET_LIST_BROKER = "https://dev-api.vinasecurities.com/trade/brokers";
+        }
+    }
+
     // endPoint
     public static final String GET_PRICE_GOLD = "https://stg.finhay.app/gw/gold/v1/price/current";
     public static final String POST_BUY_SELL_GOLD = "https://stg.finhay.app/gw/gold/v1/users/";
@@ -27,12 +46,10 @@ public class ConfigPath {
 
     public static final String JOIN_GROUP_BROKER = "https://dev-api.vinasecurities.com/trade/users/brokers/";
 
-    public static final String GET_INVEST_EFFECTS = "https://dev-api.vinasecurities.com/trade/brokers/";
     public static final String GET_INVESTMENT_PERFORMANCE = "https://dev-api.vinasecurities.com/trade/brokers/";
 
     public static final String GET_PROFIT_AND_LOSS_BROKER = "https://dev-api.vinasecurities.com/trade/brokers/";
 
-    public static final String GET_LIST_BROKER = "https://dev-api.vinasecurities.com/trade/brokers";
     public static final String GET_DETAIL_WATCHLIST = "https://dev-api.vinasecurities.com/accounts/watchlist/";
     public static final String GET_INFO_BANK_ACCOUNT_CORRECT = "https://stg.finhay.app/gw/accounts/v1/banks/970407?account_number=19029532471027";
     public static final String GET_INFO_BANK_ACCOUNT_NOT_EXIST_IN_DB = "https://stg.finhay.app/gw/accounts/v1/banks/970407?account_number=19032985954011";
