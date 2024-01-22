@@ -11,8 +11,9 @@ import java.util.List;
 import java.util.Map;
 
 public class TestJoinGroupBroker {
+    String env = System.getProperty("env");
     JoinGroupBroker groupBroker= new JoinGroupBroker();
-    GetListBroker broker= new GetListBroker();
+    GetListBroker broker= new GetListBroker(env);
 
     @Test
     public void TC_O1_Check_Correct_Join_Group_Broker_With_ID_Broker_1() throws Exception {

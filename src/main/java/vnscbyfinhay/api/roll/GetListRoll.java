@@ -2,7 +2,7 @@ package vnscbyfinhay.api.roll;
 
 import Connection.MySQL;
 import constants.BodyApi;
-import constants.configPath;
+import constants.ConfigPath;
 import io.restassured.path.json.JsonPath;
 import vnscbyfinhay.api.login.GetToken;
 
@@ -23,7 +23,7 @@ public class GetListRoll {
         return given().header( "Authorization","Bearer "+ GetToken.getAPIToken(371))
                 .params(BodyApi.BODY_GET_LIST_ROLL)
                 .when()
-                .get(configPath.GET_LIST_ROLL+account_id+"/user-rights")
+                .get(ConfigPath.GET_LIST_ROLL+account_id+"/user-rights")
                 .then()
                 .statusCode(200)
                 .assertThat().extract().response().getBody().jsonPath();
@@ -33,7 +33,7 @@ public class GetListRoll {
         return given().header( "Authorization","Bearer "+ GetToken.getAPIToken(371))
                 .params(BodyApi.BODY_GET_LIST_ROLL)
                 .when()
-                .get(configPath.GET_LIST_ROLL+account_id+"/user-rights")
+                .get(ConfigPath.GET_LIST_ROLL+account_id+"/user-rights")
                 .then()
                 .statusCode(400)
                 .assertThat().extract().response().getBody().jsonPath();

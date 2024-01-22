@@ -2,7 +2,7 @@ package vnscbyfinhay.api.assets;
 
 import Connection.MySQL;
 import constants.BodyApi;
-import constants.configPath;
+import constants.ConfigPath;
 import io.restassured.path.json.JsonPath;
 import vnscbyfinhay.api.login.GetToken;
 
@@ -23,7 +23,7 @@ public class GetProfile {
         return given().header( "Authorization","Bearer "+ GetToken.getAPIToken(371))
                 .params(BodyApi.BODY_GET_PROFILE)
                 .when()
-                .get(configPath.GET_PROFILE +uid + "/profile")
+                .get(ConfigPath.GET_PROFILE +uid + "/profile")
                 .then()
                 .statusCode(200)
                 .assertThat().extract().response().getBody().jsonPath();

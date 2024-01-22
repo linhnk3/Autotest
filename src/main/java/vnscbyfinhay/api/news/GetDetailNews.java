@@ -1,9 +1,8 @@
 package vnscbyfinhay.api.news;
 
 import Connection.MySQL;
-import com.mashape.unirest.http.exceptions.UnirestException;
 import constants.BodyApi;
-import constants.configPath;
+import constants.ConfigPath;
 import io.restassured.path.json.JsonPath;
 
 import java.sql.Connection;
@@ -25,7 +24,7 @@ public class GetDetailNews {
         return given()
                 .params(BodyApi.BODY_GET_DETAIL_NEWS)
                 .when()
-                .get(configPath.GET_DETAIL_NEWS +id + "/detail")
+                .get(ConfigPath.GET_DETAIL_NEWS +id + "/detail")
                 .then()
                 .statusCode(200)
                 .assertThat().extract().response().getBody().jsonPath();

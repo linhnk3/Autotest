@@ -2,7 +2,7 @@ package vnscbyfinhay.api.watchlist;
 
 import Connection.MySQL;
 import constants.BodyApi;
-import constants.configPath;
+import constants.ConfigPath;
 import io.restassured.path.json.JsonPath;
 import vnscbyfinhay.api.login.GetToken;
 
@@ -25,7 +25,7 @@ public class GetListWatchlist {
         return given().header( "Authorization","Bearer "+ GetToken.getAPIToken(371))
                 .params(BodyApi.BODY_GET_LIST_WATCHLIST)
                 .when()
-                .get(configPath.GET_LIST_WATCHLIST)
+                .get(ConfigPath.GET_LIST_WATCHLIST)
                 .then()
                 .statusCode(200)
                 .assertThat().extract().response().getBody().jsonPath();
@@ -34,7 +34,7 @@ public class GetListWatchlist {
         return given().header( "Authorization","Bearer "+ GetToken.getAPIToken(371))
                 .params(BodyApi.BODY_GET_LIST_WATCHLIST)
                 .when()
-                .get(configPath.GET_LIST_WATCHLIST)
+                .get(ConfigPath.GET_LIST_WATCHLIST)
                 .then()
                 .statusCode(200)
                 .assertThat().extract().response().getBody().jsonPath();

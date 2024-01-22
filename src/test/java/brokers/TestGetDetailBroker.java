@@ -10,8 +10,9 @@ import vnscbyfinhay.api.brokers.GetListBroker;
 import java.util.*;
 
 public class TestGetDetailBroker {
+    String env = System.getProperty("env");
     GetDetailBroker broker_detail= new GetDetailBroker();
-    GetListBroker broker= new GetListBroker();
+    GetListBroker broker= new GetListBroker(env);
     @Test
     public void TC_O1_Check_Correct_Detail_Broker_With_ID_1() throws Exception {
         JsonPath data = broker_detail.getAPIDetailBroker(1);

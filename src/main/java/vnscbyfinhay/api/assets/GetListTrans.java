@@ -1,7 +1,7 @@
 package vnscbyfinhay.api.assets;
 
 import Connection.MySQL;
-import constants.configPath;
+import constants.ConfigPath;
 import io.restassured.path.json.JsonPath;
 import vnscbyfinhay.api.login.GetToken;
 
@@ -24,7 +24,7 @@ public class GetListTrans {
                 .param("to", to )
                 .param("size", size )
                 .when()
-                .get(configPath.GET_LIST_TRANS +uid + "/sub-accounts/" + subAccId + "/transactions" )
+                .get(ConfigPath.GET_LIST_TRANS +uid + "/sub-accounts/" + subAccId + "/transactions" )
                 .then()
                 .statusCode(200)
                 .assertThat().extract().response().getBody().jsonPath();

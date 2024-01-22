@@ -3,7 +3,7 @@ package finhay.api.goldService;
 
 import Connection.MySQL;
 import constants.BodyApi;
-import constants.configPath;
+import constants.ConfigPath;
 
 
 import java.sql.*;
@@ -22,7 +22,7 @@ public class PostBuyGold {
      String stt =   given().header("Content-Type","application/json")
                 .body(BodyApi.body_post_buy_gold_normal_case_gold_one_mace)
                 .when()
-                .post(configPath.POST_BUY_SELL_GOLD+userid+"/requests")
+                .post(ConfigPath.POST_BUY_SELL_GOLD+userid+"/requests")
                 .then()
                 .statusCode(200)
                 .assertThat().extract().response().getBody().jsonPath().getJsonObject("message");
@@ -33,7 +33,7 @@ return stt;
         String stt =   given().header("Content-Type","application/json")
                 .body(BodyApi.body_post_buy_gold_normal_case_all_type)
                 .when()
-                .post(configPath.POST_BUY_SELL_GOLD+userid+"/requests")
+                .post(ConfigPath.POST_BUY_SELL_GOLD+userid+"/requests")
                 .then()
                 .statusCode(200)
                 .assertThat().extract().response().getBody().jsonPath().getJsonObject("message");
@@ -44,7 +44,7 @@ return stt;
         String stt =   given().header("Content-Type","application/json")
                 .body(BodyApi.body_post_buy_gold_over_inventory)
                 .when()
-                .post(configPath.POST_BUY_SELL_GOLD+userid+"/requests")
+                .post(ConfigPath.POST_BUY_SELL_GOLD+userid+"/requests")
                 .then()
                 .statusCode(200)
                 .assertThat().extract().response().getBody().jsonPath().getJsonObject("message");
@@ -55,7 +55,7 @@ return stt;
         String stt =   given().header("Content-Type","application/json")
                 .body(BodyApi.body_post_buy_gold_over_limit_per_day)
                 .when()
-                .post(configPath.POST_BUY_SELL_GOLD+userid+"/requests")
+                .post(ConfigPath.POST_BUY_SELL_GOLD+userid+"/requests")
                 .then()
                 .statusCode(400)
                 .assertThat().extract().response().getBody().jsonPath().getJsonObject("message");
@@ -67,7 +67,7 @@ return stt;
       String response =  given().header("Content-Type","application/json")
                 .body(BodyApi.body_post_buy_gold_over_asset_COD)
                 .when()
-                .post(configPath.POST_BUY_SELL_GOLD+userid+"/requests")
+                .post(ConfigPath.POST_BUY_SELL_GOLD+userid+"/requests")
                 .then()
                 .statusCode(200)
                 .assertThat().extract().response().getBody().jsonPath().getJsonObject("error_code");
@@ -77,7 +77,7 @@ return stt;
      String  responseNoInputAmount = given().header("Content-Type","application/json")
                 .body(BodyApi.body_post_buy_gold_no_input_amount_gold)
                 .when()
-                .post(configPath.POST_BUY_SELL_GOLD+userid+"/requests")
+                .post(ConfigPath.POST_BUY_SELL_GOLD+userid+"/requests")
          .then()
                 .statusCode(400)
                 .assertThat().extract().response().getBody().jsonPath().getJsonObject("message");
@@ -88,7 +88,7 @@ return stt;
         String  responseNoInputAmount = given().header("Content-Type","application/json")
                 .body(BodyApi.body_post_buy_gold_no_input_amount_gold)
                 .when()
-                .post(configPath.POST_BUY_SELL_GOLD+userid+"/requests")
+                .post(ConfigPath.POST_BUY_SELL_GOLD+userid+"/requests")
                 .then()
                 .statusCode(200)
                 .assertThat().extract().response().getBody().jsonPath().getJsonObject("message");

@@ -1,7 +1,7 @@
 package finhay.api.bankAccount;
 
 import Connection.MySQL;
-import constants.configPath;
+import constants.ConfigPath;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -19,7 +19,7 @@ public class GetListBank {
     public Integer getAPIListBank() {
          int list = given()
                     .when()
-                    .get(configPath.GET_LIST_BANK)
+                    .get(ConfigPath.GET_LIST_BANK)
                     .then()
                     .statusCode(200)
                     .assertThat().extract().response().getBody().jsonPath().getList("result").size();

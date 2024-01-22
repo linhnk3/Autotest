@@ -2,7 +2,7 @@ package vnscbyfinhay.api.watchlist;
 
 import Connection.MySQL;
 import constants.BodyApi;
-import constants.configPath;
+import constants.ConfigPath;
 import io.restassured.path.json.JsonPath;
 import vnscbyfinhay.api.login.GetToken;
 
@@ -24,7 +24,7 @@ public class CreateWatchlist {
         return given().headers("Content-Type", "application/json", "Authorization", "Bearer " + GetToken.getAPIToken(371))
                 .body(BodyApi.BODY_CREATE_WATCHLIST_SUCCESS)
                 .when()
-                .post(configPath.POST_CREATE_WATCHLIST)
+                .post(ConfigPath.POST_CREATE_WATCHLIST)
                 .then()
                 .statusCode(200)
                 .assertThat().extract().response().getBody().jsonPath();
@@ -33,7 +33,7 @@ public class CreateWatchlist {
         return given().headers("Content-Type", "application/json", "Authorization", "Bearer " + GetToken.getAPIToken(371))
                 .body(BodyApi.BODY_CREATE_WATCHLIST_SUCCESS)
                 .when()
-                .post(configPath.POST_CREATE_WATCHLIST)
+                .post(ConfigPath.POST_CREATE_WATCHLIST)
                 .then()
                 .statusCode(400)
                 .assertThat().extract().response().getBody().jsonPath();
@@ -43,7 +43,7 @@ public class CreateWatchlist {
         return given().headers("Content-Type", "application/json", "Authorization", "Bearer " + GetToken.getAPIToken(371))
                 .body(BodyApi.BODY_CREATE_WATCHLIST_WITH_NAME_EMPTY)
                 .when()
-                .post(configPath.POST_CREATE_WATCHLIST)
+                .post(ConfigPath.POST_CREATE_WATCHLIST)
                 .then()
                 .statusCode(400)
                 .assertThat().extract().response().getBody().jsonPath();
@@ -52,7 +52,7 @@ public class CreateWatchlist {
         return given().headers("Content-Type", "application/json", "Authorization", "Bearer " + GetToken.getAPIToken(371))
                 .body(BodyApi.BODY_CREATE_WATCHLIST_WITH_NAME_NULL)
                 .when()
-                .post(configPath.POST_CREATE_WATCHLIST)
+                .post(ConfigPath.POST_CREATE_WATCHLIST)
                 .then()
                 .statusCode(400)
                 .assertThat().extract().response().getBody().jsonPath();

@@ -2,7 +2,7 @@ package finhay.api.goldService;
 
 import Connection.MySQL;
 import constants.BodyApi;
-import constants.configPath;
+import constants.ConfigPath;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -64,7 +64,7 @@ public class BuySellWithdrawGoldManyTime {
                     //    .header("Authorization","Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjExNTMsImlhdCI6MTYyNjc1MjgwMiwiZXhwIjoxNjI5MzQ0ODAyfQ.G8GXq8wNF5jzGSCVSYHtBqIVDcLiWYIeiHgvdxxHpfA")
                     .body(BodyApi.body_gold_buy_many_time)
                     .when()
-                    .post(configPath.POST_BUY_SELL_GOLD+getUserID().get(i)+ "/requests")
+                    .post(ConfigPath.POST_BUY_SELL_GOLD+getUserID().get(i)+ "/requests")
                     .then()
                     .statusCode(200)
                     .assertThat().extract().response().getBody().jsonPath().prettyPrint();
@@ -76,7 +76,7 @@ public class BuySellWithdrawGoldManyTime {
             given().header("Content-Type", "application/json")
                     .body(BodyApi.body_gold_sell_many_time)
                     .when()
-                    .post(configPath.POST_BUY_SELL_GOLD+getUserID().get(i)+ "/requests")
+                    .post(ConfigPath.POST_BUY_SELL_GOLD+getUserID().get(i)+ "/requests")
                     .then()
                     //.statusCode(200)
                     .assertThat().extract().response().getBody().jsonPath().prettyPrint();
@@ -87,7 +87,7 @@ public class BuySellWithdrawGoldManyTime {
             given().header("Content-Type", "application/json")
                     .body(BodyApi.Body_Withdraw_Gold_Success_All_Type)
                     .when()
-                    .post(configPath.POST_WITHDRAW_GOLD+getUserID().get(i)+ "/withdraw_orders")
+                    .post(ConfigPath.POST_WITHDRAW_GOLD+getUserID().get(i)+ "/withdraw_orders")
                     .then()
                     //.statusCode(200)
                     .assertThat().extract().response().getBody().jsonPath().prettyPrint();

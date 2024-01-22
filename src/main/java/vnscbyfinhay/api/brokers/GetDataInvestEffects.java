@@ -2,7 +2,7 @@ package vnscbyfinhay.api.brokers;
 
 import Connection.MySQL;
 import constants.BodyApi;
-import constants.configPath;
+import constants.ConfigPath;
 import io.restassured.path.json.JsonPath;
 import vnscbyfinhay.api.login.GetToken;
 
@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Map;
+import java.util.Objects;
 
 import static io.restassured.RestAssured.given;
 
@@ -19,6 +20,17 @@ public class GetDataInvestEffects {
     private PreparedStatement stmt = null;
     private ResultSet kq = null;
     Map<String, Object> maps;
+    private final ConfigPath configPath;
+
+    public GetDataInvestEffects(String env) {
+        if ("dev".equals(env)) {
+            configPath = new ConfigPath("dev");
+        } else if ("prod".equals(env)) {
+            configPath = new ConfigPath("prod");
+        } else {
+            configPath = new ConfigPath("default");
+        }
+    }
 
     public JsonPath getAPIInvestEffects(Integer id) throws Exception {
         return given().header("Authorization", "Bearer " + GetToken.getAPIToken(244))

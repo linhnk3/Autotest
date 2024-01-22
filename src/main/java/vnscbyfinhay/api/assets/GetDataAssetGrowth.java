@@ -1,7 +1,7 @@
 package vnscbyfinhay.api.assets;
 
 import Connection.MySQL;
-import constants.configPath;
+import constants.ConfigPath;
 import io.restassured.path.json.JsonPath;
 import vnscbyfinhay.api.login.GetToken;
 
@@ -22,7 +22,7 @@ public class GetDataAssetGrowth {
         return given().header( "Authorization","Bearer "+ GetToken.getAPIToken(371))
                 .param("cache-control", cacheControl )
                 .when()
-                .get(configPath.GET_DATA_ASSET_GROWTH +uid + "/assets/summary" )
+                .get(ConfigPath.GET_DATA_ASSET_GROWTH +uid + "/assets/summary" )
                 .then()
                 .statusCode(200)
                 .assertThat().extract().response().getBody().jsonPath();

@@ -2,7 +2,7 @@ package vnscbyfinhay.api.brokers;
 
 import Connection.Redis;
 import constants.BodyApi;
-import constants.configPath;
+import constants.ConfigPath;
 import io.restassured.path.json.JsonPath;
 import vnscbyfinhay.api.login.GetToken;
 
@@ -23,7 +23,7 @@ public class GetDataProfitAndLoss {
         return given().header( "Authorization","Bearer "+ GetToken.getAPIToken(244))
                 .params(BodyApi.BODY_GET_PROFIT_AND_LOSS_BROKER)
                 .when()
-                .get(configPath.GET_PROFIT_AND_LOSS_BROKER +id + "/deals" )
+                .get(ConfigPath.GET_PROFIT_AND_LOSS_BROKER +id + "/deals" )
                 .then()
                 .statusCode(200)
                 .assertThat().extract().response().getBody().jsonPath();
@@ -33,7 +33,7 @@ public class GetDataProfitAndLoss {
         return given().header( "Authorization","Bearer "+ GetToken.getAPIToken(244))
                 .params(BodyApi.BODY_GET_PROFIT_AND_LOSS_BROKER)
                 .when()
-                .get(configPath.GET_PROFIT_AND_LOSS_BROKER +id + "/deals" )
+                .get(ConfigPath.GET_PROFIT_AND_LOSS_BROKER +id + "/deals" )
                 .then()
                 .statusCode(400)
                 .assertThat().extract().response().getBody().jsonPath();
@@ -43,7 +43,7 @@ public class GetDataProfitAndLoss {
         return given().header( "Authorization","Bearer "+ null)
                 .params(BodyApi.BODY_GET_PROFIT_AND_LOSS_BROKER)
                 .when()
-                .get(configPath.GET_PROFIT_AND_LOSS_BROKER +id + "/deals" )
+                .get(ConfigPath.GET_PROFIT_AND_LOSS_BROKER +id + "/deals" )
                 .then()
                 .statusCode(401)
                 .assertThat().extract().response().getBody().jsonPath();
@@ -52,7 +52,7 @@ public class GetDataProfitAndLoss {
         return given().header( "Authorization","Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjM3MSwiY3VzdF9pZCI6IjAwMDEwMDA0MDEiLCJzY29wZSI6IkxPR0lOIiwiaWF0IjoxNzA0OTQ1NjExLCJleHAiOjE3MDQ5NDkyMTF9.3vAsQ0USf1HNYU3Yavlzk7FOW97LmqkiYGiznc-CuR0")
                 .params(BodyApi.BODY_GET_PROFIT_AND_LOSS_BROKER)
                 .when()
-                .get(configPath.GET_PROFIT_AND_LOSS_BROKER +id + "/deals" )
+                .get(ConfigPath.GET_PROFIT_AND_LOSS_BROKER +id + "/deals" )
                 .then()
                 .statusCode(401)
                 .assertThat().extract().response().getBody().jsonPath();

@@ -9,7 +9,8 @@ import java.util.List;
 import java.util.Map;
 
 public class TestGetListBroker {
-    GetListBroker broker= new GetListBroker();
+    String env = System.getProperty("env");
+    GetListBroker broker= new GetListBroker(env);
 
     @Test
     public void TC_O1_Check_Correct_List_Broker() throws Exception {

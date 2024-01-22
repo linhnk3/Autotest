@@ -13,8 +13,9 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class TestGetDataProfitAndLoss {
+    String env = System.getProperty("env");
     GetDataProfitAndLoss dataProfitAndLoss = new GetDataProfitAndLoss();
-    GetListBroker broker = new GetListBroker();
+    GetListBroker broker = new GetListBroker(env);
 
     @Test
     public void TC_O1_Check_Correct_Data_Broker_With_ID_3() throws Exception {

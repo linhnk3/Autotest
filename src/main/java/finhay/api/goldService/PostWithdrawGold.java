@@ -2,12 +2,11 @@ package finhay.api.goldService;
 
 import Connection.MySQL;
 import constants.BodyApi;
-import constants.configPath;
+import constants.ConfigPath;
 import org.json.simple.JSONObject;
 
 
 import java.sql.*;
-import java.time.format.DateTimeFormatter;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
@@ -23,7 +22,7 @@ public class PostWithdrawGold {
         String message = given().header("Content-Type", "application/json")
                 .body(BodyApi.Body_Withdraw_Gold_Success_All_Type)
                 .when()
-                .post(configPath.POST_WITHDRAW_GOLD+user_id+"/withdraw_orders")
+                .post(ConfigPath.POST_WITHDRAW_GOLD+user_id+"/withdraw_orders")
                 .then()
                 .statusCode(200)
                 .assertThat().extract().response().getBody().jsonPath().getJsonObject("message");
@@ -34,7 +33,7 @@ public class PostWithdrawGold {
         String message = given().header("Content-Type", "application/json")
                 .body(BodyApi.Body_Withdraw_Gold_24K_Type)
                 .when()
-                .post(configPath.POST_WITHDRAW_GOLD+user_id+"/withdraw_orders")
+                .post(ConfigPath.POST_WITHDRAW_GOLD+user_id+"/withdraw_orders")
                 .then()
                 .statusCode(200)
                 .assertThat().extract().response().getBody().jsonPath().getJsonObject("message");
@@ -46,7 +45,7 @@ public class PostWithdrawGold {
         String message = given().header("Content-Type", "application/json")
                 .body(BodyApi.Body_Withdraw_Gold_Success_Gold24K_One_Mace)
                 .when()
-                .post(configPath.POST_WITHDRAW_GOLD+user_id+"/withdraw_orders")
+                .post(ConfigPath.POST_WITHDRAW_GOLD+user_id+"/withdraw_orders")
                 .then()
                 .statusCode(200)
                 .assertThat().extract().response().getBody().jsonPath().getJsonObject("message");
@@ -57,7 +56,7 @@ public class PostWithdrawGold {
         String message = given().header("Content-Type", "application/json")
                 .body(BodyApi.Body_Withdraw_Gold_Success_All_Type)
                 .when()
-                .post(configPath.POST_WITHDRAW_GOLD+user_id+"/withdraw_orders")
+                .post(ConfigPath.POST_WITHDRAW_GOLD+user_id+"/withdraw_orders")
                 .then()
                 .statusCode(400)
                 .assertThat().extract().response().getBody().jsonPath().getJsonObject("message");
@@ -68,7 +67,7 @@ public class PostWithdrawGold {
     public String runJobChangeStatusSubmitUndueToSubmitDue() {
         String message = given().header("Content-Type", "application/json")
                 .when()
-                .put(configPath.PUT_JOB_FROM_SUBMIT_UNDUE_TO_SUBMIT_DUE)
+                .put(ConfigPath.PUT_JOB_FROM_SUBMIT_UNDUE_TO_SUBMIT_DUE)
                 .then()
                 .statusCode(200)
                 .assertThat().extract().response().getBody().jsonPath().getJsonObject("message");
@@ -78,7 +77,7 @@ public class PostWithdrawGold {
     public String runJobChangeStatusSubmitDueToOverDue() {
         String message = given().header("Content-Type", "application/json")
                 .when()
-                .put(configPath.PUT_JOB_FROM_SUBMIT_DUE_TO_OVERDUE)
+                .put(ConfigPath.PUT_JOB_FROM_SUBMIT_DUE_TO_OVERDUE)
                 .then()
                 .statusCode(200)
                 .assertThat().extract().response().getBody().jsonPath().getJsonObject("message");
@@ -93,7 +92,7 @@ public class PostWithdrawGold {
         String message = given().header("Content-Type", "application/json")
                 .body(request.toJSONString())
                 .when()
-                .put(configPath.PUT_JOB_FROM_SUBMIT_DUE_TO_SHOP_CONFIRMED)
+                .put(ConfigPath.PUT_JOB_FROM_SUBMIT_DUE_TO_SHOP_CONFIRMED)
                 .then()
                .statusCode(200)
                 .assertThat().extract().response().getBody().jsonPath().getJsonObject("message");
@@ -106,7 +105,7 @@ public class PostWithdrawGold {
         String message = given().header("Content-Type", "application/json")
                 .body(request.toJSONString())
                 .when()
-                .put(configPath.PUT_JOB_FROM_SHOP_CONFIRMED_TO_COMPLETED+user_id+"/withdraw_orders/_complete")
+                .put(ConfigPath.PUT_JOB_FROM_SHOP_CONFIRMED_TO_COMPLETED+user_id+"/withdraw_orders/_complete")
                 .then()
                 .statusCode(200)
                 .assertThat().extract().response().getBody().jsonPath().getJsonObject("message");

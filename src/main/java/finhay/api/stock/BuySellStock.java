@@ -2,7 +2,7 @@ package finhay.api.stock;
 
 import Connection.MySQL;
 import constants.BodyApi;
-import constants.configPath;
+import constants.ConfigPath;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -22,7 +22,7 @@ public class BuySellStock {
         String message = given().header("Content-Type", "application/json")
                 .body(BodyApi.BODY_BUY_STOCK_SUCCESS)
                 .when()
-                .post(configPath.POST_STOCK+user_id+"/buy_orders")
+                .post(ConfigPath.POST_STOCK+user_id+"/buy_orders")
                 .then()
                 .statusCode(200)
                 .assertThat().extract().response().getBody().jsonPath().getJsonObject("message");
@@ -34,7 +34,7 @@ public class BuySellStock {
         String message = given().header("Content-Type", "application/json")
                 .body(BodyApi.BODY_BUY_ODD_STOCK)
                 .when()
-                .post(configPath.POST_STOCK+user_id+"/buy_orders")
+                .post(ConfigPath.POST_STOCK+user_id+"/buy_orders")
                 .then()
                 .statusCode(400)
                 .assertThat().extract().response().getBody().jsonPath().getJsonObject("message");
@@ -47,7 +47,7 @@ public class BuySellStock {
           given().header("Content-Type", "application/json")
                     .body(BodyApi.BODY_BUY_ODD_STOCK)
                     .when()
-                    .post(configPath.POST_STOCK_LOCAL + user_id + "/buy_orders")
+                    .post(ConfigPath.POST_STOCK_LOCAL + user_id + "/buy_orders")
                     .then()
                     .statusCode(200)
                     .assertThat().extract().response().getBody().jsonPath().prettyPrint();
@@ -60,7 +60,7 @@ public class BuySellStock {
         String message = given().header("Content-Type", "application/json")
                 .body(BodyApi.BODY_BUY_STOCK_SUCCESS)
                 .when()
-                .post(configPath.POST_STOCK + user_id + "/sell_orders")
+                .post(ConfigPath.POST_STOCK + user_id + "/sell_orders")
                 .then()
                 .statusCode(200)
                 .assertThat().extract().response().getBody().jsonPath().getJsonObject("message");
@@ -71,7 +71,7 @@ public class BuySellStock {
         String message = given().header("Content-Type", "application/json")
                 .body(BodyApi.BODY_BUY_ODD_STOCK)
                 .when()
-                .post(configPath.POST_STOCK+user_id+"/sell_orders")
+                .post(ConfigPath.POST_STOCK+user_id+"/sell_orders")
                 .then()
                 .statusCode(400)
                 .assertThat().extract().response().getBody().jsonPath().getJsonObject("message");
@@ -82,7 +82,7 @@ public class BuySellStock {
         String message = given().header("Content-Type", "application/json")
                 .body(BodyApi.BODY_SELL_OVER_STOCK)
                 .when()
-                .post(configPath.POST_STOCK+user_id+"/sell_orders")
+                .post(ConfigPath.POST_STOCK+user_id+"/sell_orders")
                 .then()
                 .statusCode(400)
                 .assertThat().extract().response().getBody().jsonPath().getJsonObject("message");
