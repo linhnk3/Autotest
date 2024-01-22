@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 import vnscbyfinhay.api.brokers.GetListBroker;
 import vnscbyfinhay.api.brokers.JoinGroupBroker;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -22,6 +23,8 @@ public class TestJoinGroupBroker {
         System.out.println(data_1);
         Assert.assertEquals(data_1.get("message"), "Success");
         Assert.assertEquals(data_1.get("error_code"), "0");
+        List<HashMap<String, Object>> dataDb = groupBroker.getGroupBroker(1);
+        Assert.assertEquals(true, dataDb.get(0).get("favorite"));
     }
 
     @Test
@@ -32,6 +35,8 @@ public class TestJoinGroupBroker {
         JsonPath data_1 = groupBroker.getAPIJoinGroupBroker(kq, "true");
         Assert.assertEquals(data_1.get("message"), "Success");
         Assert.assertEquals(data_1.get("error_code"), "0");
+        List<HashMap<String, Object>> dataDb = groupBroker.getGroupBroker(2);
+        Assert.assertEquals(true, dataDb.get(0).get("favorite"));
     }
 
     @Test
@@ -42,6 +47,8 @@ public class TestJoinGroupBroker {
         JsonPath data_1 = groupBroker.getAPIJoinGroupBroker(kq, "true");
         Assert.assertEquals(data_1.get("message"), "Success");
         Assert.assertEquals(data_1.get("error_code"), "0");
+        List<HashMap<String, Object>> dataDb = groupBroker.getGroupBroker(3);
+        Assert.assertEquals(true, dataDb.get(0).get("favorite"));
     }
 
     @Test
@@ -53,6 +60,8 @@ public class TestJoinGroupBroker {
         JsonPath data_2 = groupBroker.getAPIJoinGroupBroker(kq, "false");
         Assert.assertEquals(data_2.get("message"), "Success");
         Assert.assertEquals(data_2.get("error_code"), "0");
+        List<HashMap<String, Object>> dataDb = groupBroker.getGroupBroker(3);
+        Assert.assertEquals(false, dataDb.get(0).get("favorite"));
     }
 
     @Test

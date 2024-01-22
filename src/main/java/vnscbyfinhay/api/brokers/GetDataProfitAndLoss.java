@@ -20,7 +20,7 @@ public class GetDataProfitAndLoss {
     private ResultSet kq = null;
     Map<String, Object> maps;
     public JsonPath getAPIProfitAndLoss(Integer id) throws Exception {
-        return given().header( "Authorization","Bearer "+ GetToken.getAPIToken3())
+        return given().header( "Authorization","Bearer "+ GetToken.getAPIToken(244))
                 .params(BodyApi.BODY_GET_PROFIT_AND_LOSS_BROKER)
                 .when()
                 .get(configPath.GET_PROFIT_AND_LOSS_BROKER +id + "/deals" )
@@ -30,7 +30,7 @@ public class GetDataProfitAndLoss {
     }
 
     public JsonPath getAPIProfitAndLossInvalid(Integer id) throws Exception {
-        return given().header( "Authorization","Bearer "+ GetToken.getAPIToken3())
+        return given().header( "Authorization","Bearer "+ GetToken.getAPIToken(244))
                 .params(BodyApi.BODY_GET_PROFIT_AND_LOSS_BROKER)
                 .when()
                 .get(configPath.GET_PROFIT_AND_LOSS_BROKER +id + "/deals" )

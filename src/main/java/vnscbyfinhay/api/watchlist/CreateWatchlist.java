@@ -21,7 +21,7 @@ public class CreateWatchlist {
     Map<String, Object> maps;
 
     public JsonPath createAPIWatchlistValid() throws Exception {
-        return given().headers("Content-Type", "application/json", "Authorization", "Bearer " + GetToken.getAPIToken())
+        return given().headers("Content-Type", "application/json", "Authorization", "Bearer " + GetToken.getAPIToken(371))
                 .body(BodyApi.BODY_CREATE_WATCHLIST_SUCCESS)
                 .when()
                 .post(configPath.POST_CREATE_WATCHLIST)
@@ -30,7 +30,7 @@ public class CreateWatchlist {
                 .assertThat().extract().response().getBody().jsonPath();
     }
     public JsonPath createAPIWatchlistInvalid() throws Exception {
-        return given().headers("Content-Type", "application/json", "Authorization", "Bearer " + GetToken.getAPIToken())
+        return given().headers("Content-Type", "application/json", "Authorization", "Bearer " + GetToken.getAPIToken(371))
                 .body(BodyApi.BODY_CREATE_WATCHLIST_SUCCESS)
                 .when()
                 .post(configPath.POST_CREATE_WATCHLIST)
@@ -40,7 +40,7 @@ public class CreateWatchlist {
     }
 
     public JsonPath createAPIWatchlistWithNameEmpty() throws Exception {
-        return given().headers("Content-Type", "application/json", "Authorization", "Bearer " + GetToken.getAPIToken())
+        return given().headers("Content-Type", "application/json", "Authorization", "Bearer " + GetToken.getAPIToken(371))
                 .body(BodyApi.BODY_CREATE_WATCHLIST_WITH_NAME_EMPTY)
                 .when()
                 .post(configPath.POST_CREATE_WATCHLIST)
@@ -49,7 +49,7 @@ public class CreateWatchlist {
                 .assertThat().extract().response().getBody().jsonPath();
     }
     public JsonPath createAPIWatchlistWithNameNull() throws Exception {
-        return given().headers("Content-Type", "application/json", "Authorization", "Bearer " + GetToken.getAPIToken())
+        return given().headers("Content-Type", "application/json", "Authorization", "Bearer " + GetToken.getAPIToken(371))
                 .body(BodyApi.BODY_CREATE_WATCHLIST_WITH_NAME_NULL)
                 .when()
                 .post(configPath.POST_CREATE_WATCHLIST)

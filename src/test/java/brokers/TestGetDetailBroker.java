@@ -22,7 +22,7 @@ public class TestGetDetailBroker {
         Assert.assertEquals(dataApi.get("name"), dataDb.get(0).get("name"));
         Assert.assertEquals(dataApi.get("short_name"), dataDb.get(0).get("short_name"));
         Assert.assertEquals(dataApi.get("description"), dataDb.get(0).get("description"));
-        }
+    }
 
     @Test
     public void TC_O2_Check_Correct_Detail_Broker_With_ID_2() throws Exception {

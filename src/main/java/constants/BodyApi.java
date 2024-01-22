@@ -9,7 +9,12 @@ public class BodyApi {
     PostWithdrawGold withdrawGold = new PostWithdrawGold();
     static String stock;
     static Integer id;
+    static Integer uid;
+    static  Integer subAccId;
     static String favorite;
+    static String from;
+    static String to;
+    static Integer size;
     //Buy gold normal case
     public static final Object body_post_buy_gold_normal_case_gold_one_mace = "{\n" +
             "    \"asset_type\": \"GOLD_RING\",\n" +
@@ -293,6 +298,18 @@ public class BodyApi {
 
     public static final Map<String, Object> BODY_GET_DETAIL_BROKER = new HashMap<String, Object>() {{
         put("id", id);
+    }};
+
+    public static final Map<String, Object> BODY_GET_PROFILE = new HashMap<String, Object>() {{
+        put("uid", uid);
+    }};
+
+    public static final Map<String, Object> BODY_GET_LIST_TRANS = new HashMap<String, Object>() {{
+        put("uid", uid);
+        put ("sub_acc_id",subAccId);
+        put ("from", from);
+        put ("to",to);
+        put("size",size);
     }};
 
     public static final Map<String, Object> BODY_JOIN_GROUP_BROKER = new HashMap<String, Object>() {{

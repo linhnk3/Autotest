@@ -24,6 +24,11 @@ public class configPath {
     public static final String GET_DETAIL_NEWS = "https://dev-api.vinasecurities.com/datafeed/news/";
 
     public static final String GET_DETAIL_BROKER = "https://dev-api.vinasecurities.com/trade/brokers/";
+    public static final String GET_PROFILE = "https://dev-api.vinasecurities.com/accounts/v1/users/";
+
+    public static final String GET_LIST_TRANS = "https://dev-api.vinasecurities.com/payments/v1/users/";
+
+    public static final String GET_DATA_ASSET_GROWTH = "https://dev-api.vinasecurities.com/accounts/v1/users/";
 
     public static final String JOIN_GROUP_BROKER = "https://dev-api.vinasecurities.com/trade/users/brokers/";
 

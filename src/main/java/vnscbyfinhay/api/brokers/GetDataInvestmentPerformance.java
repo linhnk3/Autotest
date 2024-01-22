@@ -21,7 +21,7 @@ public class GetDataInvestmentPerformance {
     Map<String, Object> maps;
 
     public JsonPath getAPIInvestmentPerformance(Integer id) throws Exception {
-        return given().header("Authorization", "Bearer " + GetToken.getAPIToken3())
+        return given().header("Authorization", "Bearer " + GetToken.getAPIToken(244))
                 .params(BodyApi.BODY_GET_INVESTMENT_PERFORMANCE)
                 .when()
                 .get(configPath.GET_INVESTMENT_PERFORMANCE + id + "/investment-performance")
@@ -31,7 +31,7 @@ public class GetDataInvestmentPerformance {
     }
 
     public JsonPath getAPIInvestmentPerformanceInvalid(Integer id) throws Exception {
-        return given().header("Authorization", "Bearer " + GetToken.getAPIToken3())
+        return given().header("Authorization", "Bearer " + GetToken.getAPIToken(244))
                 .params(BodyApi.BODY_GET_INVESTMENT_PERFORMANCE)
                 .when()
                 .get(configPath.GET_INVESTMENT_PERFORMANCE + id + "/investment-performance")

@@ -1,4 +1,4 @@
-package vnscbyfinhay.api.roll;
+package vnscbyfinhay.api.assets;
 
 import Connection.MySQL;
 import constants.BodyApi;
@@ -13,29 +13,19 @@ import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 
-public class GetListRoll {
+public class GetProfile {
     public MySQL query = new MySQL();
     private Connection con = null;
     private PreparedStatement stmt = null;
     private ResultSet kq = null;
     Map<String, Object> maps;
-    public JsonPath getAPIListRollValid(String account_id) throws Exception {
+    public JsonPath getAPIProfile(Integer uid) throws Exception {
         return given().header( "Authorization","Bearer "+ GetToken.getAPIToken(371))
-                .params(BodyApi.BODY_GET_LIST_ROLL)
+                .params(BodyApi.BODY_GET_PROFILE)
                 .when()
-                .get(configPath.GET_LIST_ROLL+account_id+"/user-rights")
+                .get(configPath.GET_PROFILE +uid + "/profile")
                 .then()
                 .statusCode(200)
-                .assertThat().extract().response().getBody().jsonPath();
-    }
-
-    public JsonPath getAPIListRollInvalid(String account_id) throws Exception {
-        return given().header( "Authorization","Bearer "+ GetToken.getAPIToken(371))
-                .params(BodyApi.BODY_GET_LIST_ROLL)
-                .when()
-                .get(configPath.GET_LIST_ROLL+account_id+"/user-rights")
-                .then()
-                .statusCode(400)
                 .assertThat().extract().response().getBody().jsonPath();
     }
 }

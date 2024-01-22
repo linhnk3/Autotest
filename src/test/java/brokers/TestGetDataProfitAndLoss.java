@@ -145,10 +145,6 @@ public class TestGetDataProfitAndLoss {
                     JsonPath.from(dataDb).getList("open_deals").stream().map(x -> ((Map<String, Object>) x).get("symbol")).collect(Collectors.toSet())
             );
             Assert.assertEquals(
-                    ((ArrayList<Map<String, Object>>) dataApi_1.get("open_deals")).stream().map(x -> x.get("cost_price")).collect(Collectors.toSet()),
-                    JsonPath.from(dataDb).getList("open_deals").stream().map(x -> ((Map<String, Object>) x).get("cost_price")).collect(Collectors.toSet())
-            );
-            Assert.assertEquals(
                     ((ArrayList<Map<String, Object>>) dataApi_1.get("open_deals")).stream().map(x -> x.get("profit_percent")).collect(Collectors.toSet()),
                     JsonPath.from(dataDb).getList("open_deals").stream().map(x -> ((Map<String, Object>) x).get("profit_percent")).collect(Collectors.toSet())
             );

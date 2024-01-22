@@ -22,7 +22,7 @@ public class GetDetailBroker {
     private ResultSet kq = null;
     Map<String, Object> maps;
     public JsonPath getAPIDetailBroker(Integer id) throws Exception {
-        return given().header( "Authorization","Bearer "+ GetToken.getAPIToken3())
+        return given().header( "Authorization","Bearer "+ GetToken.getAPIToken(244))
                 .params(BodyApi.BODY_GET_DETAIL_BROKER)
                 .when()
                 .get(configPath.GET_DETAIL_BROKER +id )
@@ -32,7 +32,7 @@ public class GetDetailBroker {
     }
 
     public JsonPath getAPIDetailBrokerInvalid(Integer id) throws Exception {
-        return given().header( "Authorization","Bearer "+ GetToken.getAPIToken3())
+        return given().header( "Authorization","Bearer "+ GetToken.getAPIToken(244))
                 .params(BodyApi.BODY_GET_DETAIL_BROKER)
                 .when()
                 .get(configPath.GET_DETAIL_BROKER +id )

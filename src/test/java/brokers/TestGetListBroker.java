@@ -10,6 +10,7 @@ import java.util.Map;
 
 public class TestGetListBroker {
     GetListBroker broker= new GetListBroker();
+
     @Test
     public void TC_O1_Check_Correct_List_Broker() throws Exception {
         JsonPath data= broker.getAPIListBroker();
@@ -24,6 +25,7 @@ public class TestGetListBroker {
             Assert.assertEquals(dataApi.get(i).get("short_name"), dataDb.get(i).get("short_name"));
         }
     }
+
     @Test
     public void TC_O2_Check_InCorrect_List_Broker_With_Invalid_Token() throws Exception {
         JsonPath data= broker.getAPIListBrokerInvalidToken();
@@ -31,6 +33,7 @@ public class TestGetListBroker {
         Assert.assertEquals(data.get("error_code"), "InvalidTokenException");
 
     }
+
     @Test
     public void TC_O3_Check_InCorrect_List_Broker_With_Expired_Token() throws Exception {
         JsonPath data= broker.getAPIListBrokerExpiredToken();

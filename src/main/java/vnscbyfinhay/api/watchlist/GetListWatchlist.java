@@ -22,7 +22,7 @@ public class GetListWatchlist {
     private ResultSet kq = null;
     Map<String, Object> maps;
     public JsonPath getAPIListWatchlist() throws Exception {
-        return given().header( "Authorization","Bearer "+ GetToken.getAPIToken())
+        return given().header( "Authorization","Bearer "+ GetToken.getAPIToken(371))
                 .params(BodyApi.BODY_GET_LIST_WATCHLIST)
                 .when()
                 .get(configPath.GET_LIST_WATCHLIST)
@@ -31,7 +31,7 @@ public class GetListWatchlist {
                 .assertThat().extract().response().getBody().jsonPath();
     }
     public JsonPath getAPIListWatchlistDefault() throws Exception {
-        return given().header( "Authorization","Bearer "+ GetToken.getAPIToken2())
+        return given().header( "Authorization","Bearer "+ GetToken.getAPIToken(371))
                 .params(BodyApi.BODY_GET_LIST_WATCHLIST)
                 .when()
                 .get(configPath.GET_LIST_WATCHLIST)

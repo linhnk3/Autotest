@@ -21,7 +21,7 @@ public class GetDataInvestEffects {
     Map<String, Object> maps;
 
     public JsonPath getAPIInvestEffects(Integer id) throws Exception {
-        return given().header("Authorization", "Bearer " + GetToken.getAPIToken3())
+        return given().header("Authorization", "Bearer " + GetToken.getAPIToken(244))
                 .params(BodyApi.BODY_GET_INVEST_EFFECTS)
                 .when()
                 .get(configPath.GET_INVEST_EFFECTS + id + "/backtest")
@@ -31,7 +31,7 @@ public class GetDataInvestEffects {
     }
 
     public JsonPath getAPIInvestEffectsInvalid(Integer id) throws Exception {
-        return given().header("Authorization", "Bearer " + GetToken.getAPIToken3())
+        return given().header("Authorization", "Bearer " + GetToken.getAPIToken(244))
                 .params(BodyApi.BODY_GET_INVEST_EFFECTS)
                 .when()
                 .get(configPath.GET_INVEST_EFFECTS + id + "/backtest")

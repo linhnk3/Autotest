@@ -22,7 +22,7 @@ public class GetListBroker {
     private ResultSet kq = null;
     Map<String, Object> maps;
     public JsonPath getAPIListBroker() throws Exception {
-        return given().header( "Authorization","Bearer "+ GetToken.getAPIToken3())
+        return given().header( "Authorization","Bearer "+ GetToken.getAPIToken(244))
                 .params(BodyApi.BODY_GET_LIST_BROKER)
                 .when()
                 .get(configPath.GET_LIST_BROKER)

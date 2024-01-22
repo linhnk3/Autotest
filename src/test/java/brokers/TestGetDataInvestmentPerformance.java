@@ -52,6 +52,7 @@ public class TestGetDataInvestmentPerformance {
         Assert.assertEquals(data_1.get("message"), "Không thể tìm thấy thông tin của môi giới với mã 177, vui lòng thử lại");
         Assert.assertEquals(data_1.get("error_code"), "BROKER_001");
     }
+
     @Test
     public void TC_O5_Check_InCorrect_Data_Broker_With_Id_Not_Null() throws Exception {
         JsonPath data= broker.getAPIListBroker();
@@ -60,6 +61,7 @@ public class TestGetDataInvestmentPerformance {
         JsonPath data_1 = dataInvestmentPerformance.getAPIInvestmentPerformanceInvalid(null);
         Assert.assertEquals(data_1.get("title"), "Bad Request");
     }
+
     @Test
     public void TC_O6_Check_InCorrect_Data_Broker_With_Invalid_Token() throws Exception {
         JsonPath data= broker.getAPIListBroker();
@@ -69,6 +71,7 @@ public class TestGetDataInvestmentPerformance {
         Assert.assertEquals(data_1.get("message"), "Thông tin xác thực không hợp lệ");
         Assert.assertEquals(data_1.get("error_code"), "InvalidTokenException");
     }
+
     @Test
     public void TC_O7_Check_InCorrect_Data_Broker_With_Expired_Token() throws Exception {
         JsonPath data= broker.getAPIListBroker();
