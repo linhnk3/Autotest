@@ -31,11 +31,11 @@ public class GetDetailWatchlist {
     }
 
     public JsonPath getAPIDetailWatchlistWithIDNull(Integer id) throws Exception {
-        return given().header( "Authorization","Bearer "+ GetToken.getAPIToken(372))
+        return given().header( "Authorization","Bearer "+ GetToken.getAPIToken(371))
                 .when()
                 .get(ConfigPath.GET_DETAIL_WATCHLIST + id)
                 .then()
-                .statusCode(500)
+                .statusCode(404)
                 .assertThat().extract().response().getBody().jsonPath();
     }
 

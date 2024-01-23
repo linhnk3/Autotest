@@ -12,7 +12,7 @@ import java.util.Map;
 
 public class TestJoinGroupBroker {
     String env = System.getProperty("env");
-    JoinGroupBroker groupBroker= new JoinGroupBroker();
+    JoinGroupBroker groupBroker= new JoinGroupBroker(env);
     GetListBroker broker= new GetListBroker(env);
 
     @Test

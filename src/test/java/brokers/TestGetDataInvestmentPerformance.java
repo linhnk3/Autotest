@@ -11,7 +11,7 @@ import java.util.Map;
 
 public class TestGetDataInvestmentPerformance {
     String env = System.getProperty("env");
-    GetDataInvestmentPerformance dataInvestmentPerformance = new GetDataInvestmentPerformance();
+    GetDataInvestmentPerformance dataInvestmentPerformance = new GetDataInvestmentPerformance(env);
     GetListBroker broker = new GetListBroker(env);
 
     @Test

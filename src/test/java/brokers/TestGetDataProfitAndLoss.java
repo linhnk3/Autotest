@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 
 public class TestGetDataProfitAndLoss {
     String env = System.getProperty("env");
-    GetDataProfitAndLoss dataProfitAndLoss = new GetDataProfitAndLoss();
+    GetDataProfitAndLoss dataProfitAndLoss = new GetDataProfitAndLoss(env);
     GetListBroker broker = new GetListBroker(env);
 
     @Test

@@ -15,9 +15,10 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class TestGetDataAssetGrowth {
-    GetProfile profile = new GetProfile();
-    GetListTrans listTrans = new GetListTrans();
-    GetDataAssetGrowth assetGrowth= new GetDataAssetGrowth();
+    String env = System.getProperty("env");
+    GetProfile profile = new GetProfile(env);
+    GetListTrans listTrans = new GetListTrans(env);
+    GetDataAssetGrowth assetGrowth= new GetDataAssetGrowth(env);
 
     @Test
     public void TC_O1_Check_Correct_Get_Asset() throws Exception {

@@ -19,11 +19,22 @@ public class GetProfile {
     private PreparedStatement stmt = null;
     private ResultSet kq = null;
     Map<String, Object> maps;
+    private final ConfigPath configPath;
+
+    public GetProfile(String env) {
+        if ("dev".equals(env)) {
+            configPath = new ConfigPath("dev");
+        } else if ("prod".equals(env)) {
+            configPath = new ConfigPath("prod");
+        } else {
+            configPath = new ConfigPath("default");
+        }
+    }
     public JsonPath getAPIProfile(Integer uid) throws Exception {
         return given().header( "Authorization","Bearer "+ GetToken.getAPIToken(371))
                 .params(BodyApi.BODY_GET_PROFILE)
                 .when()
-                .get(ConfigPath.GET_PROFILE +uid + "/profile")
+                .get(configPath.GET_PROFILE +uid + "/profile")
                 .then()
                 .statusCode(200)
                 .assertThat().extract().response().getBody().jsonPath();

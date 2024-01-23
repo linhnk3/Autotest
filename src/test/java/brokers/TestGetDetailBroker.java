@@ -11,7 +11,7 @@ import java.util.*;
 
 public class TestGetDetailBroker {
     String env = System.getProperty("env");
-    GetDetailBroker broker_detail= new GetDetailBroker();
+    GetDetailBroker broker_detail= new GetDetailBroker(env);
     GetListBroker broker= new GetListBroker(env);
     @Test
     public void TC_O1_Check_Correct_Detail_Broker_With_ID_1() throws Exception {

@@ -21,11 +21,22 @@ public class GetDetailBroker {
     private PreparedStatement stmt = null;
     private ResultSet kq = null;
     Map<String, Object> maps;
+    private final ConfigPath configPath;
+
+    public GetDetailBroker(String env) {
+        if ("dev".equals(env)) {
+            configPath = new ConfigPath("dev");
+        } else if ("prod".equals(env)) {
+            configPath = new ConfigPath("prod");
+        } else {
+            configPath = new ConfigPath("default");
+        }
+    }
     public JsonPath getAPIDetailBroker(Integer id) throws Exception {
         return given().header( "Authorization","Bearer "+ GetToken.getAPIToken(244))
                 .params(BodyApi.BODY_GET_DETAIL_BROKER)
                 .when()
-                .get(ConfigPath.GET_DETAIL_BROKER +id )
+                .get(configPath.GET_DETAIL_BROKER +id )
                 .then()
                 .statusCode(200)
                 .assertThat().extract().response().getBody().jsonPath();
@@ -35,7 +46,7 @@ public class GetDetailBroker {
         return given().header( "Authorization","Bearer "+ GetToken.getAPIToken(244))
                 .params(BodyApi.BODY_GET_DETAIL_BROKER)
                 .when()
-                .get(ConfigPath.GET_DETAIL_BROKER +id )
+                .get(configPath.GET_DETAIL_BROKER +id )
                 .then()
                 .statusCode(400)
                 .assertThat().extract().response().getBody().jsonPath();
@@ -45,7 +56,7 @@ public class GetDetailBroker {
         return given().header( "Authorization","Bearer "+ null)
                 .params(BodyApi.BODY_GET_DETAIL_BROKER)
                 .when()
-                .get(ConfigPath.GET_DETAIL_BROKER +id )
+                .get(configPath.GET_DETAIL_BROKER +id )
                 .then()
                 .statusCode(401)
                 .assertThat().extract().response().getBody().jsonPath();
@@ -54,7 +65,7 @@ public class GetDetailBroker {
         return given().header( "Authorization","Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjM3MSwiY3VzdF9pZCI6IjAwMDEwMDA0MDEiLCJzY29wZSI6IkxPR0lOIiwiaWF0IjoxNzA0OTQ1NjExLCJleHAiOjE3MDQ5NDkyMTF9.3vAsQ0USf1HNYU3Yavlzk7FOW97LmqkiYGiznc-CuR0")
                 .params(BodyApi.BODY_GET_DETAIL_BROKER)
                 .when()
-                .get(ConfigPath.GET_DETAIL_BROKER +id )
+                .get(configPath.GET_DETAIL_BROKER +id )
                 .then()
                 .statusCode(401)
                 .assertThat().extract().response().getBody().jsonPath();

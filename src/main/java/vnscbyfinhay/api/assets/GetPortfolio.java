@@ -12,7 +12,7 @@ import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 
-public class GetDataAssetGrowth {
+public class GetPortfolio {
     public MySQL query = new MySQL();
     private Connection con = null;
     private PreparedStatement stmt = null;
@@ -20,7 +20,7 @@ public class GetDataAssetGrowth {
     Map<String, Object> maps;
     private final ConfigPath configPath;
 
-    public GetDataAssetGrowth(String env) {
+    public GetPortfolio(String env) {
         if ("dev".equals(env)) {
             configPath = new ConfigPath("dev");
         } else if ("prod".equals(env)) {
@@ -29,11 +29,11 @@ public class GetDataAssetGrowth {
             configPath = new ConfigPath("default");
         }
     }
-    public JsonPath getAPIDataAssetGrowth(Integer uid, String cacheControl) throws Exception {
+    public JsonPath getAPIPortfolio(String  subAccId, String cacheControl) throws Exception {
         return given().header( "Authorization","Bearer "+ GetToken.getAPIToken(371))
                 .param("cache-control", cacheControl )
                 .when()
-                .get(configPath.GET_DATA_ASSET_GROWTH +uid + "/assets/summary" )
+                .get(configPath.GET_PORTFOLIO +subAccId + "/portfolio")
                 .then()
                 .statusCode(200)
                 .assertThat().extract().response().getBody().jsonPath();

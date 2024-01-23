@@ -18,13 +18,24 @@ public class GetListTrans {
     private PreparedStatement stmt = null;
     private ResultSet kq = null;
     Map<String, Object> maps;
+    private final ConfigPath configPath;
+
+    public GetListTrans(String env) {
+        if ("dev".equals(env)) {
+            configPath = new ConfigPath("dev");
+        } else if ("prod".equals(env)) {
+            configPath = new ConfigPath("prod");
+        } else {
+            configPath = new ConfigPath("default");
+        }
+    }
     public JsonPath getAPIListTrans(Integer uid, String subAccId, String from, String to, Integer size) throws Exception {
         return given().header( "Authorization","Bearer "+ GetToken.getAPIToken(371))
                 .param("from", from )
                 .param("to", to )
                 .param("size", size )
                 .when()
-                .get(ConfigPath.GET_LIST_TRANS +uid + "/sub-accounts/" + subAccId + "/transactions" )
+                .get(configPath.GET_LIST_TRANS +uid + "/sub-accounts/" + subAccId + "/transactions" )
                 .then()
                 .statusCode(200)
                 .assertThat().extract().response().getBody().jsonPath();

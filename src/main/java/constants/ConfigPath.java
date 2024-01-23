@@ -6,17 +6,51 @@ public class ConfigPath {
     public final String GET_INVEST_EFFECTS;
     public final String GET_LIST_BROKER;
 
+    public final String GET_DETAIL_BROKER;
+    public final String GET_PROFILE;
+    public final String GET_LIST_TRANS;
+    public final String GET_DATA_ASSET_GROWTH;
+    public final String JOIN_GROUP_BROKER;
+    public final String GET_INVESTMENT_PERFORMANCE;
+    public final String GET_PROFIT_AND_LOSS_BROKER;
+    public final String GET_PORTFOLIO;
+
     public ConfigPath(String env) {
         System.out.println("[ConfigPath] Environment: " + env);
         if ("dev".equals(env)) {
             GET_INVEST_EFFECTS = DEV_URL + "/trade/brokers/";
             GET_LIST_BROKER = DEV_URL + "/trade/brokers";
+            GET_DETAIL_BROKER = DEV_URL+ "/trade/brokers/";
+            GET_PROFILE = DEV_URL + "/accounts/v1/users/";
+            GET_LIST_TRANS = DEV_URL + "/payments/v1/users/";
+            GET_DATA_ASSET_GROWTH = DEV_URL + "/accounts/v1/users/";
+            JOIN_GROUP_BROKER = DEV_URL + "/trade/users/brokers/";
+            GET_INVESTMENT_PERFORMANCE = DEV_URL + "/trade/brokers/";
+            GET_PROFIT_AND_LOSS_BROKER = DEV_URL + "/trade/brokers/";
+            GET_PORTFOLIO = DEV_URL + "/trade/sub-accounts/";
+
         } else if ("prod".equals(env)) {
             GET_INVEST_EFFECTS = PROD_URL + "/trade/brokers/";
             GET_LIST_BROKER = PROD_URL + "/trade/brokers";
+            GET_DETAIL_BROKER = PROD_URL+ "/trade/brokers/";
+            GET_PROFILE = PROD_URL + "/accounts/v1/users/";
+            GET_LIST_TRANS = PROD_URL + "/payments/v1/users/";
+            GET_DATA_ASSET_GROWTH = PROD_URL + "/accounts/v1/users/";
+            JOIN_GROUP_BROKER = PROD_URL + "/trade/users/brokers/";
+            GET_INVESTMENT_PERFORMANCE = PROD_URL + "/trade/brokers/";
+            GET_PROFIT_AND_LOSS_BROKER = PROD_URL + "/trade/brokers/";
+            GET_PORTFOLIO = PROD_URL + "/trade/sub-accounts/";
         } else {
             GET_INVEST_EFFECTS = "https://dev-api.vinasecurities.com/trade/brokers/";
             GET_LIST_BROKER = "https://dev-api.vinasecurities.com/trade/brokers";
+            GET_DETAIL_BROKER = "https://dev-api.vinasecurities.com/trade/brokers/";
+            GET_PROFILE = "https://dev-api.vinasecurities.com/accounts/v1/users/";
+            GET_LIST_TRANS = "https://dev-api.vinasecurities.com/payments/v1/users/";
+            GET_DATA_ASSET_GROWTH = "https://dev-api.vinasecurities.com/accounts/v1/users/";
+            JOIN_GROUP_BROKER = "https://dev-api.vinasecurities.com/trade/users/brokers/";
+            GET_INVESTMENT_PERFORMANCE = "https://dev-api.vinasecurities.com/trade/brokers/";
+            GET_PROFIT_AND_LOSS_BROKER = "https://dev-api.vinasecurities.com/trade/brokers/";
+            GET_PORTFOLIO = "https://dev-api.vinasecurities.com/trade/sub-accounts/";
         }
     }
 
@@ -41,19 +75,6 @@ public class ConfigPath {
     public static final String GET_NEWEST_NEWS = "https://dev-api.vinasecurities.com/datafeed/news/newest?stock=";
 
     public static final String GET_DETAIL_NEWS = "https://dev-api.vinasecurities.com/datafeed/news/";
-
-    public static final String GET_DETAIL_BROKER = "https://dev-api.vinasecurities.com/trade/brokers/";
-    public static final String GET_PROFILE = "https://dev-api.vinasecurities.com/accounts/v1/users/";
-
-    public static final String GET_LIST_TRANS = "https://dev-api.vinasecurities.com/payments/v1/users/";
-
-    public static final String GET_DATA_ASSET_GROWTH = "https://dev-api.vinasecurities.com/accounts/v1/users/";
-
-    public static final String JOIN_GROUP_BROKER = "https://dev-api.vinasecurities.com/trade/users/brokers/";
-
-    public static final String GET_INVESTMENT_PERFORMANCE = "https://dev-api.vinasecurities.com/trade/brokers/";
-
-    public static final String GET_PROFIT_AND_LOSS_BROKER = "https://dev-api.vinasecurities.com/trade/brokers/";
 
     public static final String GET_DETAIL_WATCHLIST = "https://dev-api.vinasecurities.com/accounts/watchlist/";
     public static final String GET_INFO_BANK_ACCOUNT_CORRECT = "https://stg.finhay.app/gw/accounts/v1/banks/970407?account_number=19029532471027";

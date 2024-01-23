@@ -21,13 +21,24 @@ public class JoinGroupBroker {
     private PreparedStatement stmt = null;
     private ResultSet kq = null;
     Map<String, Object> maps;
+    private final ConfigPath configPath;
+
+    public JoinGroupBroker(String env) {
+        if ("dev".equals(env)) {
+            configPath = new ConfigPath("dev");
+        } else if ("prod".equals(env)) {
+            configPath = new ConfigPath("prod");
+        } else {
+            configPath = new ConfigPath("default");
+        }
+    }
 
     public JsonPath getAPIJoinGroupBroker(Integer id, String favorite) throws Exception {
         return given().header("Authorization", "Bearer " + GetToken.getAPIToken(244))
                 .header("Content-Type", "application/json")
                 .body(String.format("{\n    \"favorite\": %s\n}", favorite))
                 .when()
-                .put(ConfigPath.JOIN_GROUP_BROKER + id)
+                .put(configPath.JOIN_GROUP_BROKER + id)
                 .then()
                 .statusCode(200)
                 .assertThat().extract().response().getBody().jsonPath();
@@ -38,7 +49,7 @@ public class JoinGroupBroker {
                 .header("Content-Type", "application/json")
                 .body(String.format("{\n    \"favorite\": %s\n}", favorite))
                 .when()
-                .put(ConfigPath.JOIN_GROUP_BROKER + id)
+                .put(configPath.JOIN_GROUP_BROKER + id)
                 .then()
                 .statusCode(400)
                 .assertThat().extract().response().getBody().jsonPath();
@@ -49,7 +60,7 @@ public class JoinGroupBroker {
                 .header("Content-Type", "application/json")
                 .body(String.format("{\n    \"favorite\": %s\n}", favorite))
                 .when()
-                .put(ConfigPath.JOIN_GROUP_BROKER + id)
+                .put(configPath.JOIN_GROUP_BROKER + id)
                 .then()
                 .statusCode(401)
                 .assertThat().extract().response().getBody().jsonPath();
@@ -60,7 +71,7 @@ public class JoinGroupBroker {
                 .header("Content-Type", "application/json")
                 .body(String.format("{\n    \"favorite\": %s\n}", favorite))
                 .when()
-                .put(ConfigPath.JOIN_GROUP_BROKER + id)
+                .put(configPath.JOIN_GROUP_BROKER + id)
                 .then()
                 .statusCode(401)
                 .assertThat().extract().response().getBody().jsonPath();

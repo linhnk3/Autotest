@@ -5,9 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import vnscbyfinhay.api.watchlist.GetListWatchlist;
 
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class TestGetListWatchList {
     GetListWatchlist listWatchlist= new GetListWatchlist();
@@ -20,7 +18,7 @@ public class TestGetListWatchList {
         Assert.assertFalse(result.isEmpty());
         Assert.assertEquals(data.get("message"), "success");
         Assert.assertEquals(data.get("error_code"), "0");
-        List<Integer> id = listWatchlist.getListWatchlistByUser("374");
+        List<Integer> id = listWatchlist.getListWatchlistByUser("371");
         for (Object x : result) {
             Assert.assertTrue(id.contains((Integer) x));
         }
@@ -33,7 +31,7 @@ public class TestGetListWatchList {
         Assert.assertFalse(result.isEmpty());
         Assert.assertEquals(data.get("message"), "success");
         Assert.assertEquals(data.get("error_code"), "0");
-        List<Integer> id = listWatchlist.getListWatchlistByUser("352");
+        List<Integer> id = listWatchlist.getListWatchlistByUser("371");
         for (Object x : result) {
             Assert.assertTrue(id.contains((Integer) x));
         }
