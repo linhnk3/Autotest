@@ -33,6 +33,14 @@ public class GetToken
                 put("username", "0985452222");
                 put("password", "Ab@12345");
             }});
+        put(8, new HashMap<String, String>() {{
+            put("username", "0587782111");
+            put("password", "Ab@12345");
+        }});
+        put(367, new HashMap<String, String>() {{
+            put("username", "0587782345");
+            put("password", "Ab@12345");
+        }});
     }};
 
     public static String getAPIToken(Integer uid) throws Exception {

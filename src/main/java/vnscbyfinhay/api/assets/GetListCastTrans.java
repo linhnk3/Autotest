@@ -12,7 +12,7 @@ import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 
-public class GetListTrans {
+public class GetListCastTrans {
     public MySQL query = new MySQL();
     private Connection con = null;
     private PreparedStatement stmt = null;
@@ -20,7 +20,7 @@ public class GetListTrans {
     Map<String, Object> maps;
     private final ConfigPath configPath;
 
-    public GetListTrans(String env) {
+    public GetListCastTrans(String env) {
         if ("dev".equals(env)) {
             configPath = new ConfigPath("dev");
         } else if ("prod".equals(env)) {
@@ -30,7 +30,7 @@ public class GetListTrans {
         }
     }
     public JsonPath getAPIListTrans(Integer uid, String subAccId, String from, String to, Integer size) throws Exception {
-        return given().header( "Authorization","Bearer "+ GetToken.getAPIToken(371))
+        return given().header( "Authorization","Bearer "+ GetToken.getAPIToken(uid))
                 .param("from", from )
                 .param("to", to )
                 .param("size", size )

@@ -29,8 +29,8 @@ public class GetPortfolio {
             configPath = new ConfigPath("default");
         }
     }
-    public JsonPath getAPIPortfolio(String  subAccId, String cacheControl) throws Exception {
-        return given().header( "Authorization","Bearer "+ GetToken.getAPIToken(371))
+    public JsonPath getAPIPortfolio(Integer uid, String  subAccId, String cacheControl) throws Exception {
+        return given().header( "Authorization","Bearer "+ GetToken.getAPIToken(uid))
                 .param("cache-control", cacheControl )
                 .when()
                 .get(configPath.GET_PORTFOLIO +subAccId + "/portfolio")

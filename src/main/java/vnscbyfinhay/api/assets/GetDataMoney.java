@@ -1,7 +1,6 @@
 package vnscbyfinhay.api.assets;
 
 import Connection.MySQL;
-import constants.BodyApi;
 import constants.ConfigPath;
 import io.restassured.path.json.JsonPath;
 import vnscbyfinhay.api.login.GetToken;
@@ -13,7 +12,7 @@ import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 
-public class GetProfile {
+public class GetDataMoney {
     public MySQL query = new MySQL();
     private Connection con = null;
     private PreparedStatement stmt = null;
@@ -21,7 +20,7 @@ public class GetProfile {
     Map<String, Object> maps;
     private final ConfigPath configPath;
 
-    public GetProfile(String env) {
+    public GetDataMoney(String env) {
         if ("dev".equals(env)) {
             configPath = new ConfigPath("dev");
         } else if ("prod".equals(env)) {
@@ -30,11 +29,10 @@ public class GetProfile {
             configPath = new ConfigPath("default");
         }
     }
-    public JsonPath getAPIProfile(Integer uid) throws Exception {
+    public JsonPath getAPIDataMoney(Integer uid) throws Exception {
         return given().header( "Authorization","Bearer "+ GetToken.getAPIToken(uid))
-                .params(BodyApi.BODY_GET_PROFILE)
                 .when()
-                .get(configPath.GET_PROFILE +uid + "/profile")
+                .get(configPath.GET_DATA_MONEY +uid + "/sub-account" )
                 .then()
                 .statusCode(200)
                 .assertThat().extract().response().getBody().jsonPath();

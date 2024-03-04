@@ -92,7 +92,7 @@ public class GetListBroker {
                 e.printStackTrace();
             }
         }
-        // System.out.println("id " + result);
+        // System.out.println("id" + result);
         return result;
     }
 }

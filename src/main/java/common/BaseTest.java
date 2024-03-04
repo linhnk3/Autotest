@@ -22,7 +22,6 @@ public class BaseTest <T extends BaseTest>{
         this.env = env;
     }
 
-
     @AfterSuite(groups = {"dev", "qc", "uat" , "prod"})
     public void teardownSuite(){
     }

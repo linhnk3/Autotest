@@ -30,7 +30,7 @@ public class GetDataAssetGrowth {
         }
     }
     public JsonPath getAPIDataAssetGrowth(Integer uid, String cacheControl) throws Exception {
-        return given().header( "Authorization","Bearer "+ GetToken.getAPIToken(371))
+        return given().header( "Authorization","Bearer "+ GetToken.getAPIToken(uid))
                 .param("cache-control", cacheControl )
                 .when()
                 .get(configPath.GET_DATA_ASSET_GROWTH +uid + "/assets/summary" )

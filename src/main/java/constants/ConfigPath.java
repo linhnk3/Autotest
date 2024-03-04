@@ -14,6 +14,11 @@ public class ConfigPath {
     public final String GET_INVESTMENT_PERFORMANCE;
     public final String GET_PROFIT_AND_LOSS_BROKER;
     public final String GET_PORTFOLIO;
+    public final String GET_LIST_FUND_TRANS;
+    public final String GET_SUMMARY_FUND_ASSET;
+    public final String GET_DATA_SAVING;
+    public final String GET_DATA_MONEY;
+    public final String GET_LIST_GIFT;
 
     public ConfigPath(String env) {
         System.out.println("[ConfigPath] Environment: " + env);
@@ -28,6 +33,11 @@ public class ConfigPath {
             GET_INVESTMENT_PERFORMANCE = DEV_URL + "/trade/brokers/";
             GET_PROFIT_AND_LOSS_BROKER = DEV_URL + "/trade/brokers/";
             GET_PORTFOLIO = DEV_URL + "/trade/sub-accounts/";
+            GET_LIST_FUND_TRANS = DEV_URL + "/fund/v1/users/";
+            GET_SUMMARY_FUND_ASSET = DEV_URL + "/fund/users/";
+            GET_DATA_SAVING = DEV_URL + "/saving/v1/users/";
+            GET_DATA_MONEY = DEV_URL + "/payments/v1/users/";
+            GET_LIST_GIFT = DEV_URL + "/ps/v1/referral/";
 
         } else if ("prod".equals(env)) {
             GET_INVEST_EFFECTS = PROD_URL + "/trade/brokers/";
@@ -40,6 +50,11 @@ public class ConfigPath {
             GET_INVESTMENT_PERFORMANCE = PROD_URL + "/trade/brokers/";
             GET_PROFIT_AND_LOSS_BROKER = PROD_URL + "/trade/brokers/";
             GET_PORTFOLIO = PROD_URL + "/trade/sub-accounts/";
+            GET_LIST_FUND_TRANS = PROD_URL + "/fund/v1/users/";
+            GET_SUMMARY_FUND_ASSET = PROD_URL + "/fund/users/";
+            GET_DATA_SAVING = PROD_URL + "/saving/v1/users/";
+            GET_DATA_MONEY = PROD_URL + "/payments/v1/users/";
+            GET_LIST_GIFT = PROD_URL + "/ps/v1/referral/";
         } else {
             GET_INVEST_EFFECTS = "https://dev-api.vinasecurities.com/trade/brokers/";
             GET_LIST_BROKER = "https://dev-api.vinasecurities.com/trade/brokers";
@@ -51,7 +66,13 @@ public class ConfigPath {
             GET_INVESTMENT_PERFORMANCE = "https://dev-api.vinasecurities.com/trade/brokers/";
             GET_PROFIT_AND_LOSS_BROKER = "https://dev-api.vinasecurities.com/trade/brokers/";
             GET_PORTFOLIO = "https://dev-api.vinasecurities.com/trade/sub-accounts/";
+            GET_LIST_FUND_TRANS = "https://dev-api.vinasecurities.com/fund/v1/users/";
+            GET_SUMMARY_FUND_ASSET = "https://dev-api.vinasecurities.com/fund/users/";
+            GET_DATA_SAVING = "https://dev-api.vinasecurities.com/saving/v1/users/";
+            GET_DATA_MONEY = "https://dev-api.vinasecurities.com/payments/v1/users/";
+            GET_LIST_GIFT = "https://dev-api.vinasecurities.com/ps/v1/referral/";
         }
+
     }
 
     // endPoint

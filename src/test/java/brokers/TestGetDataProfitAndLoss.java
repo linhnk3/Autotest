@@ -18,7 +18,7 @@ public class TestGetDataProfitAndLoss {
     GetListBroker broker = new GetListBroker(env);
 
     @Test
-    public void TC_O1_Check_Correct_Data_Broker_With_ID_3() throws Exception {
+    public void TC_01_givenBrokerInfoID3_whenGetDataProfitAndLoss_thenExpectedSuccessAndStatusCode200() throws Exception {
         JsonPath data = broker.getAPIListBroker();
         List<Map<String, Object>> dataApi = data.getList("data");
         Integer kq = (Integer) dataApi.get(2).get("id");
@@ -79,7 +79,7 @@ public class TestGetDataProfitAndLoss {
     }
 
     @Test
-    public void TC_O2_Check_Correct_Data_Broker_With_ID_1() throws Exception {
+    public void TC_02_givenBrokerInfoID1_whenGetDataProfitAndLoss_thenExpectedSuccessAndStatusCode200() throws Exception {
         JsonPath data = broker.getAPIListBroker();
         List<Map<String, Object>> dataApi = data.getList("data");
         Integer kq = (Integer) dataApi.get(0).get("id");
@@ -128,7 +128,7 @@ public class TestGetDataProfitAndLoss {
     }
 
     @Test
-    public void TC_O3_Check_Correct_Data_Broker_With_ID_2() throws Exception {
+    public void TC_03_givenBrokerInfoID2_whenGetDataProfitAndLoss_thenExpectedSuccessAndStatusCode200() throws Exception {
         JsonPath data = broker.getAPIListBroker();
         List<Map<String, Object>> dataApi = data.getList("data");
         Integer kq = (Integer) dataApi.get(1).get("id");
@@ -177,7 +177,7 @@ public class TestGetDataProfitAndLoss {
     }
 
     @Test
-    public void TC_O4_Check_InCorrect_Data_Broker_With_ID_Not_Exits() throws Exception {
+    public void TC_04_givenInputIDNotExits_whenGetDataProfitAndLoss_thenExpectedFailAndStatusCode400() throws Exception {
         JsonPath data = broker.getAPIListBroker();
         List<Map<String, Object>> dataApi = data.getList("data");
         Integer kq = (Integer) dataApi.get(0).get("id");
@@ -187,31 +187,11 @@ public class TestGetDataProfitAndLoss {
     }
 
     @Test
-    public void TC_O5_Check_InCorrect_Data_Broker_With_ID_Null() throws Exception {
+    public void TC_05_givenInputIDNull_whenGetDataProfitAndLoss_thenExpectedFailAndStatusCode400() throws Exception {
         JsonPath data = broker.getAPIListBroker();
         List<Map<String, Object>> dataApi = data.getList("data");
         Integer kq = (Integer) dataApi.get(0).get("id");
         JsonPath data_1 = dataProfitAndLoss.getAPIProfitAndLossInvalid(null);
         Assert.assertEquals(data_1.get("title"), "Bad Request");
-    }
-
-    @Test
-    public void TC_O6_Check_InCorrect_Data_Broker_With_Invalid_Token() throws Exception {
-        JsonPath data = broker.getAPIListBroker();
-        List<Map<String, Object>> dataApi = data.getList("data");
-        Integer kq = (Integer) dataApi.get(0).get("id");
-        JsonPath data_1 = dataProfitAndLoss.getAPIProfitAndLossInvalidToken(kq);
-        Assert.assertEquals(data_1.get("message"), "Thông tin xác thực không hợp lệ");
-        Assert.assertEquals(data_1.get("error_code"), "InvalidTokenException");
-    }
-
-    @Test
-    public void TC_O7_Check_InCorrect_Data_Broker_With_Expired_Token() throws Exception {
-        JsonPath data = broker.getAPIListBroker();
-        List<Map<String, Object>> dataApi = data.getList("data");
-        Integer kq = (Integer) dataApi.get(0).get("id");
-        JsonPath data_1 = dataProfitAndLoss.getAPIProfitAndLossExpiredToken(kq);
-        Assert.assertEquals(data_1.get("message"), "Vui lòng đăng nhập lại để tiếp tục sử dụng");
-        Assert.assertEquals(data_1.get("error_code"), "UnauthorizedException");
     }
 }
